@@ -37,6 +37,7 @@ public class UtilityClass1
 		public static String getPfdata(String key) throws IOException 
 		{
 			FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\propertyFile.properties");
+			//FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\propertyFile.properties");
 			Properties p=new Properties();
 			p.load(file);
 			String value=p.getProperty(key);
