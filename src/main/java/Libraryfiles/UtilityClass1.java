@@ -19,8 +19,9 @@ public class UtilityClass1
 	
 		public static String getTD(int rowIndex,int colIndex) throws EncryptedDocumentException, IOException
 	    {
-			FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\Testdata\\seleniumExcel.xlsx");
-			 Sheet Sh = WorkbookFactory.create(file).getSheet("DDF");
+			//FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\Testdata\\seleniumExcel.xlsx");
+			FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\Testdata\\seleniumExcel.xlsx");
+			Sheet Sh = WorkbookFactory.create(file).getSheet("DDF");
 			 String value = Sh.getRow(rowIndex).getCell(colIndex).getStringCellValue();
 	         return value;
 			
@@ -31,12 +32,13 @@ public class UtilityClass1
 		
 		
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File dest=new File("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\Screenshot\\TestCaseID"+TCID+".jpg");
+		//File dest=new File("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\Screenshot\\TestCaseID"+TCID+".jpg");
+		File dest=new File(System.getProperty("user.dir")+"\\Screenshot\\TestCaseID"+TCID+".jpg");
 		org.openqa.selenium.io.FileHandler.copy(src, dest);
 		}
 		public static String getPfdata(String key) throws IOException 
 		{
-			FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\propertyFile.properties");
+			FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\propertyFile.properties");
 			//FileInputStream file=new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\selenium_Maven\\propertyFile.properties");
 			Properties p=new Properties();
 			p.load(file);

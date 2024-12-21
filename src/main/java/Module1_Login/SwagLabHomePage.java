@@ -11,6 +11,7 @@ public class SwagLabHomePage {
 	
 		@FindBy(xpath="//div[@class='app_logo']") private WebElement logo;
 		@FindBy(xpath="//button[@id='react-burger-menu-btn']") private WebElement openMenu;
+		@FindBy(xpath="//a[@id='item_2_title_link']") private WebElement onesieProduct;
 		
 		public  SwagLabHomePage(WebDriver driver)
 		{
@@ -27,7 +28,7 @@ public class SwagLabHomePage {
 				System.out.println("fail");
 			}
 		}*/
-		public void getSwagLabHomePageLogo(String expLogoText)
+		public String getSwagLabHomePageLogo(String expLogoText)
 		{
 			String actLogoText=logo.getText();
 			if(expLogoText.equals(actLogoText))
@@ -37,6 +38,7 @@ public class SwagLabHomePage {
 			else {
 				System.out.println("fail");
 			}
+			return actLogoText;
 			
 		}
 		
@@ -44,5 +46,10 @@ public class SwagLabHomePage {
 		{
 			openMenu.click();
 		}
-		//
+		public String getSwagLabHomePageOnesieProduct(String expLogoText)
+		{
+			String actText=onesieProduct.getText();
+			return actText;
+			
+		}
 }
